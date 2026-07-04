@@ -90,7 +90,7 @@ Cross-cutting: forge-glossary (CONTEXT.md + ADRs) · forge-prototype / forge-res
 Requires Claude Code with skills + hooks support, on any OS (paths below assume Linux/WSL/macOS).
 
 ```bash
-git clone https://github.com/<you>/forge.git && cd forge
+git clone https://github.com/erra-yg/forge.git && cd forge
 ./install.sh
 ```
 
