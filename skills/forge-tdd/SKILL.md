@@ -22,8 +22,9 @@ A seam is where behavior can be observed and replaced without editing the code u
 
 1. **RED** — write the smallest test for the next slice of behavior. Run it. **Watch it fail, for the expected reason.** A test that passes immediately is a bug in the test.
 2. **GREEN** — write the minimum code to pass. Not the code you know you'll need later — the minimum for this test. Run; watch it pass; rerun the neighbors.
-3. Repeat in **vertical slices**: each cycle cuts through the layers to deliver an observable behavior end-to-end, not one horizontal layer at a time.
-4. Refactor when the code asks for it — with green tests as the net. Refactoring is not a mandatory third beat of every cycle.
+3. **COMMIT the green.** Verified work must be un-destroyable: commit at every green, or at minimum every completed vertical slice. Small commits are the ratchet that stops later edits — yours or a subagent's — from silently unwinding what already worked.
+4. Repeat in **vertical slices**: each cycle cuts through the layers to deliver an observable behavior end-to-end, not one horizontal layer at a time.
+5. Refactor when the code asks for it — with green tests as the net (and commit the refactor separately from behavior changes). Refactoring is not a mandatory beat of every cycle.
 
 Wrote implementation before its test? Delete it and start from RED. Delete means delete, not comment out — code written before its test infects the test with its own assumptions.
 

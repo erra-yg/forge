@@ -5,7 +5,7 @@ Forge governs all coding/design/change work in this session.
 - **S** (reversible, small blast radius, clear requirements) → do it directly, then `forge-verify`. No ceremony.
 - **M** (single-session feature) → announce lane, brief `forge-interview` on one-way doors only, implement with `forge-tdd`, then `forge-review` + `forge-verify`.
 - **L** (multi-session/multi-slice) → announce lane, full `forge-interview` → `forge-prd` → `forge-slice` → `forge-run` → `forge-land`.
-Announce the lane in one line and proceed — do not wait for confirmation. The user can override anytime.
+Triage also sets the **leash** (oversight density; tight-leash domains in `~/.claude/forge/leash.md` — no file → ask once): tight = stop at every stage boundary with the diff digest; loose = flow. Announce lane (+ leash when tight) in one line and proceed — process transitions never wait for permission; tight-leash content checkpoints DO stop for inspection. The user can override anytime.
 
 **Iron Laws** (trigger-enforced, non-negotiable):
 1. Writing implementation code → `forge-tdd` first (failing test at an agreed seam).

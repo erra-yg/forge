@@ -6,7 +6,7 @@
 
 ## 中文导读
 
-Forge 是一套 Claude Code 工作流生态:任务进来先**定档**(S 小事直接干 / M 单会话功能 / L 多会话工程),三条**铁律**(先有失败测试、先查根因、先验证再声称完成)只在触发点咬合而不全程挡路;设计访谈的产出沉淀为仓库级词汇表与 ADR,大工程用本地 markdown 总线切片、worktree 隔离并行执行;还有一个 **retro 自我进化环**——流程失误被记录为语料,积累后驱动 Forge 修订自身规则。
+Forge 是一套 Claude Code 工作流生态:任务进来先**定档**(S 小事直接干 / M 单会话功能 / L 多会话工程)并定**绳长**(监督密度:在用户的专业领域默认紧绳——逐阶段呈现 diff、领域问题路由给人;其余领域放行自流),三条**铁律**(先有失败测试、先查根因、先验证再声称完成)只在触发点咬合而不全程挡路;设计访谈的产出沉淀为仓库级词汇表与 ADR,大工程用本地 markdown 总线切片、worktree 隔离并行执行;还有一个 **retro 自我进化环**——流程失误被记录为语料,积累后驱动 Forge 修订自身规则。
 
 它诞生于对 [superpowers](https://github.com/obra/superpowers)(纪律机器,但仪式一刀切)与 [mattpocock/skills](https://github.com/mattpocock/skills)(可组合原语,但全靠手动串联)两套生态的完整审计:两者的强弱项几乎互为镜像,Forge 取两者之长,并补上双方共同的盲区(分级强度、运行时行为验证、强制回写、自我进化)。
 
@@ -27,12 +27,13 @@ Their strengths and gaps are nearly mirror images. Forge is the synthesis, plus 
 2. **Behavioral verification** — drive the real surface (CLI, endpoint, page), not just test exit codes.
 3. **Forced write-back** — prototype and research answers must land in a durable artifact; "no write-back = it never happened."
 4. **Self-evolution** — process failures become a training corpus that revises Forge's own rules.
+5. **The leash** (v0.2, after [Slepak's Short Leash method](https://blog.okturtles.org/2026/07/short-leash-ai-method/)) — oversight density as a second knob, orthogonal to lanes and scaled to the *expertise gradient*: in domains where the user out-knows the model (where code can run fine yet be subtly wrong), the chain stops at every stage boundary for diff inspection and routes domain questions to the human; elsewhere it flows. Announce-and-go governs process transitions; the leash governs content checkpoints.
 
 ## How it compares
 
 | Dimension | superpowers | mattpocock/skills | Forge |
 |---|---|---|---|
-| Intensity control | one-size-fits-all gates | manual skill picking | auto-sized lanes (S/M/L) |
+| Intensity control | one-size-fits-all gates | manual skill picking | two knobs: lanes (process) + leash (oversight) |
 | Discipline (TDD/debug/verify) | ✅ Iron Laws, always | opt-in, siloed | Iron Laws at trigger points |
 | Durable knowledge | ❌ dated specs pile up | ✅ CONTEXT.md + ADR | ✅ same, updated inline |
 | Cross-session coordination | ❌ | issue tracker (GitHub) | local markdown bus (offline-first) |
@@ -128,6 +129,7 @@ Forge stands on two ecosystems it studied closely and borrows from shamelessly, 
 - [obra/superpowers](https://github.com/obra/superpowers) — the Iron Law formulation, anti-rationalization tables, verification-as-evidence, worktree finishing discipline.
 - [mattpocock/skills](https://github.com/mattpocock/skills) — the grilling interview primitive, domain-modeling (glossary/ADR) discipline, vertical-slice issues, thin-wrapper-over-primitive architecture.
 - [thedotmack/claude-mem](https://github.com/thedotmack/claude-mem) — the documentation-discovery ("Allowed APIs") defense against API hallucination, adopted in forge-prd.
+- Greg Slepak's [Short Leash method](https://blog.okturtles.org/2026/07/short-leash-ai-method/) — the expertise-gradient argument behind the leash knob, commit-per-green, and the AI-disclosure PR gates (v0.2).
 
 ## License
 

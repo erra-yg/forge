@@ -25,6 +25,10 @@ Does this diff build what was agreed? Judge against the governing artifact (issu
 - **Creep** — behavior nobody asked for (YAGNI violations, speculative options, drive-by refactors).
 - **Wrong** — implemented, but not what the spec meant. Terminology drift against CONTEXT.md counts: code that names a concept differently than the glossary is a spec bug.
 
+## The human-judgment queue
+
+The two axes cover what a machine can check. Some questions must be **routed to the human, never auto-resolved**: domain assumptions (physics, numerics, units, statistical validity), algorithm choice against domain convention, performance trade-offs in hot paths — anything where being wrong looks identical to being right from inside the code. Output these as an explicit "needs human judgment" list alongside the findings, each with your recommendation attached. Machine review is an advanced linter; pretending the two axes cover domain truth manufactures false confidence. Under a tight leash this queue is presented before advancing; under loose, at the next stage boundary.
+
 ## Modes
 
 - **Lite (M lane):** one reviewer pass covering both axes, severity-tagged. Same session is acceptable, but review the DIFF, not your memory of writing it.

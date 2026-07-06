@@ -23,6 +23,17 @@ Score three axes, each low/high:
 
 Between two lanes? Ask one multiple-choice question. Otherwise never ask.
 
+## The leash — oversight density (the second knob)
+
+Lanes size **process weight**; the leash sizes **oversight density** — how closely the human inspects content as it is produced. They are orthogonal: announce-and-go governs *process transitions* (never wait for permission to run the workflow), the leash governs *content checkpoints* (when to stop and show the work).
+
+- **Tight** — the task falls in a domain where the user's expertise exceeds the model's, or the plausibly-wrong space is large (code can run fine yet be subtly wrong: physics assumptions, numerics, domain conventions). Behavior: STOP at every stage boundary and present the diff digest for inspection before advancing; surface domain-critical decisions the moment they arise, not in batch; the human-judgment queue from `forge-review` is presented before proceeding.
+- **Loose** — routine, well-trodden ground. The chain advances without waiting; diff digests are still produced (see below) so oversight stays available.
+
+**Domain config**: read `~/.claude/forge/leash.md` for the user's tight-leash domains; a repo's CONTEXT.md may override per-project. **If no config file exists** (new user or new machine), ask once — "哪些领域你要求紧绳监督(你的专业领域、高错误代价领域)?/ which domains need tight-leash oversight?" — record the answer to `~/.claude/forge/leash.md`, and never silently guess. Announce the leash with the lane whenever it is tight: "M 道 · 紧绳: <reason>".
+
+**Every stage boundary, all lanes, all leashes:** present a diff digest — `git diff --stat` plus the hunks that matter. Cheap oversight is the point: the user should never have to ask what changed.
+
 ## Lane protocols
 
 **S — direct:** One sentence ("S 道:直接修改 X"). Do the work. Iron Laws still apply (bug → `forge-rootcause`; implementation code → `forge-tdd` where a test surface exists). Finish with `forge-verify`. No design doc, no plan file, no interview.

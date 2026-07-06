@@ -18,7 +18,7 @@ Integration is where independently-green slices meet each other for the first ti
 Verification green → present exactly these options, recommendation first based on repo context (remote exists? user's review habits?):
 
 1. **Merge to main locally** — solo/local projects, default when no remote.
-2. **Push + PR** — repos with a remote and review flow (offer babysit-style follow-up if available).
+2. **Push + PR** — repos with a remote and review flow (offer babysit-style follow-up if available). For PRs to public repos or repos with other maintainers, two extra gates: an `## AI Disclosure` section in the PR body stating AI assistance, and the submitter's **line-by-line self-review of the full diff** before it goes up — an AI-assisted PR is a PR from an AI with human assistance; the human must understand every line they put their name on.
 3. **Keep the branch** — user wants manual inspection first.
 4. **Discard** — requires the user to type `discard` literally; irreversible deletions never ride on an ambiguous "yes".
 
