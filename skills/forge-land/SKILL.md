@@ -12,6 +12,7 @@ Integration is where independently-green slices meet each other for the first ti
 1. **Integration branch.** Create `forge/land-prd-NNN` from the base the worktrees branched from.
 2. **Merge in dependency order** — the same order the issues declared, blockers first. After EACH merge: build + affected tests. A conflict or red suite stops the train at that car: fix it there (`forge-rootcause` for genuine breakage — cross-slice interaction bugs found here are normal and are exactly what the train exists to catch), then continue.
 3. **Full gate on the assembled train:** complete suite, typecheck/lint, and `forge-verify`'s behavioral drive of the PRD's primary user stories — end-to-end, on the integrated branch. Slices that each worked alone and break together are a land finding, not a reopened issue; fix on the integration branch.
+4. **Remote CI is the senior gate.** If the repo has CI (GitHub Actions etc.), local green is a pre-screen, not the verdict: push and wait for CI before declaring the train landed (babysit-style follow-up where available). Local Forge checks never outrank the project's own pipeline.
 
 ## Integration options
 

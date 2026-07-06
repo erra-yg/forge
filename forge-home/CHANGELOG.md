@@ -17,3 +17,11 @@ Revision log for the Forge workflow ecosystem. Each entry: date, files touched, 
 - forge-land: outward-PR gates (AI Disclosure section + submitter line-by-line self-review).
 - L0 router: leash announcement wired into Entry.
 - Rejected: auto-logging user interruptions as leash-misjudgment retro entries — interruptions are ambiguous (often the user correcting their own prompt, not the agent); retro capture stays deliberate, never inferred.
+
+## 2026-07-06 — v0.2.1 grounding pass (external critique absorption, verified)
+- Input: forge-dev/critique/260706 report — object-misidentified (reviewed a nonexistent "AI-native CI/QA Forge"), but four critiques mapped validly onto real Forge judgment layers.
+- forge-verify: deterministic floor (red deterministic signals cannot be overruled by model judgment).
+- forge-review: falsifiable-findings rule (failure scenario mandatory; Critical needs executable anchor; consensus ≠ evidence).
+- forge-retro: mandatory escaped-defect category (recall ground truth for review/verify); external-input verification rule for evolve mode.
+- forge-land: remote CI as senior gate (local green = pre-screen).
+- Deliberately NOT added to L0 router (token budget; rules live at their trigger sites).

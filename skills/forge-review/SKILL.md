@@ -38,6 +38,8 @@ The two axes cover what a machine can check. Some questions must be **routed to 
 
 Each finding: severity (**Critical** = wrong behavior/data loss/security → fix before anything else; **Important** = will bite soon → fix before proceeding; **Minor** = note it, fix if touching that area), location, one-sentence defect, concrete failure scenario.
 
+**Findings must be falsifiable.** Every finding names the concrete failure scenario (this input/state → this wrong outcome); a Critical additionally needs an executable anchor — a reproduction command or a failing test someone could actually run. Review is LLM judgment layered over the deterministic floor (suite/typecheck/lint): a red deterministic signal can never be waved off by a reviewer, and reviewer *consensus* is not acceptance criteria — evidence is. Two reviewers agreeing on an unfalsifiable claim is correlated speculation, not confirmation.
+
 Receiving findings (from this review, or any external reviewer):
 - **No performative agreement.** "You're absolutely right" and thanks add nothing — evaluate, then act or rebut.
 - **Verify before implementing.** A reviewer's claim is a hypothesis; check it against the code before changing anything. Reviewers lack session context and are sometimes simply wrong.

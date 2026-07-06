@@ -24,11 +24,13 @@ Append one entry to `~/.claude/forge/retro/YYYY-MM.md` (create monthly file as n
 
 Capture costs one minute and happens inline — do not batch to session end, do not skip because the incident feels small. Two small entries about the same rule ARE the signal.
 
+**Mandatory category — `escaped-defect`:** any defect the user finds AFTER the pipeline ran green (review passed, verify passed) MUST be captured, tagged `escaped-defect`, naming which gate should have caught it. This is the direct recall-evidence stream for review/verify: accumulated, it turns "the process feels fine" into "review is systematically blind to defect class X". Never skip these — they are the only ground truth Forge gets about its own judgment layers.
+
 ## Mode 2 — evolve (deliberate, user-initiated)
 
 When the user asks to improve/review Forge:
 
-1. **Read the corpus** (`~/.claude/forge/retro/*.md`) + `~/.claude/forge/CHANGELOG.md` for what was already tried.
+1. **Read the corpus** (`~/.claude/forge/retro/*.md`) + `~/.claude/forge/CHANGELOG.md` for what was already tried. External inputs (articles, critique documents, reviews of Forge) are welcome evolve fuel, but **verify the input first**: confirm it actually describes this Forge (object identity) and that its claims have factual anchors (specifics only someone who read the artifact could produce). An eloquent critique of a misidentified object is noise with good formatting — absorb the mapped-and-verified parts only.
 2. **Cluster by root cause**, not by symptom. The bar: **≥2 independent entries pointing at the same rule = actionable signal; 1 entry = watch item** (unless severe). Resist redesigning Forge around a single bad day.
 3. **Propose concrete diffs** to specific skill files — quoted current wording → proposed wording → which entries justify it. Rule changes beat rule additions; Forge accretes discipline, it must not accrete bureaucracy. Prefer: adjust a threshold, sharpen a trigger, delete a step that never fired.
 4. Apply approved diffs to `~/.claude/skills/forge-*/SKILL.md` (and `~/.claude/forge/L0-router.md` — keep it ≤300 tokens, something must leave if something enters).

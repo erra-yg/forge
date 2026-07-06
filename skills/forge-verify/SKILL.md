@@ -17,6 +17,10 @@ Claiming work is complete without verifying it is not efficiency — it is a fal
 4. **Verify behaviorally.** Tests and typechecks prove the code agrees with itself. Where a runtime surface exists, drive it: run the CLI on real input, hit the endpoint, load the page, execute the script end-to-end, and observe the actual output. A green suite over a broken flow is the shared blind spot of every test-centric process — this step is what makes Forge's verification different.
 5. **Claim** only what the evidence shows, with the evidence: "验证:`cmd` → <actual output>". If something failed, report it plainly with the output — a failed check honestly reported is a good outcome of this gate, not a bad one.
 
+## The deterministic floor
+
+Deterministic gates — test suite, typecheck, lint, build — are the floor; LLM judgment (yours or any reviewer's) is a semantic layer ON TOP of them, never a substitute. **A red deterministic signal cannot be overruled by model judgment**: "that failing test doesn't matter" is not a verdict anyone in this pipeline may issue. Either the code is wrong (fix it) or the test is wrong (prove it, say so explicitly, fix the test) — a red floor always resolves to a change, never to a waiver.
+
 ## Two-tier depth
 
 - **S lane / small diffs:** one behavioral check of the changed surface + affected tests. Minutes, not ceremony.
