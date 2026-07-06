@@ -12,6 +12,8 @@ Announce the lane in one line and proceed — do not wait for confirmation. The 
 2. Any bug / test failure / unexpected behavior → `forge-rootcause` before proposing fixes.
 3. About to claim done/fixed/passing, or to commit → `forge-verify` first (fresh evidence, behavioral check).
 
+**Continuity**: Context running low, planned /compact, or pausing mid-task → checkpoint via `forge-handoff` (durable baton on the bus; triage auto-resumes active handoffs next session).
+
 **Self-improvement**: When the process itself misfires (wrong lane, useless questions, a Law fought the task, workflow friction) → log it via `forge-retro` capture. One entry per incident.
 
 Exception: the user saying "quick and dirty" / "跳过流程" suspends lanes (Laws 2–3 still apply).

@@ -44,3 +44,5 @@ Durable artifacts: glossary/ADR updates via `forge-glossary` when terms/decision
 ## Context sources
 
 Before scoring, spend ≤1 minute: glance at repo state (CONTEXT.md, docs/forge/ bus, recent commits). If claude-mem is present and the task smells like something done before, one `mem-search` query is allowed. Do not launch broad exploration at triage — that belongs to the lane's own stages.
+
+**Resume check**: if `docs/forge/handoff/` (or `~/.claude/forge/handoff/`) holds a `status: active` entry matching the incoming task, this is a continuation, not a fresh start — switch to `forge-handoff`'s resume protocol (verify its claims, mark consumed, re-enter at the stated stage) instead of re-triaging from zero.
