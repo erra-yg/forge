@@ -23,7 +23,7 @@ Before ANY hypothesis: construct a **tight, red-capable feedback loop** — a si
 
 Test the top hypothesis with the cheapest observation that can falsify it (targeted log with a `[DBG-xxx]` tag, breakpoint, minimal probe script). One variable per experiment — a probe that changes two things produces evidence about neither. Hypothesis dies → next one. All three die → your model of the system is wrong somewhere upstream; widen the frame, re-derive hypotheses. Never bypass this by stacking speculative edits.
 
-**Three failed fix attempts is an architecture signal**, not a call for a fourth attempt: stop, question the design of the failing area, raise it.
+**Three failed fix attempts is an architecture signal**, not a call for a fourth attempt: stop, question the design of the failing area, raise it. Performance regressions whose cause hides in a configuration/parameter space are `forge-experiment` territory — suggest a campaign instead of bisecting by hand past the first few probes.
 
 ## Phase 3 — fix at the cause
 

@@ -14,7 +14,7 @@ sync_to() {
   for d in "$HOME"/.claude/skills/forge-*/; do
     cp -r "$d" "$dst/skills/"
   done
-  cp "$HOME/.claude/forge/L0-router.md" "$HOME/.claude/forge/CHANGELOG.md" "$dst/forge-home/"
+  cp "$HOME/.claude/forge/L0-router.md" "$HOME/.claude/forge/CHANGELOG.md" "$HOME/.claude/forge/subagent-codex.md" "$dst/forge-home/"
   mkdir -p "$dst/forge-home/bin"
   cp "$HOME/.claude/forge/bin/log-skill.sh" "$dst/forge-home/bin/"
 }

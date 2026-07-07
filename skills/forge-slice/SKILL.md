@@ -28,6 +28,11 @@ depends_on: []       # issue ids; empty = parallelizable immediately
 created: YYYY-MM-DD
 ---
 
+## Goal
+Objective: one sentence — what this slice makes better and for whom.
+Done-when: the observable check that judges completion (feeds Seams & tests).
+Red lines: what this slice must NOT touch or change (files, configs, behaviors).
+
 ## Deliverable
 One observable behavior, phrased as what a user/caller can do after this lands.
 

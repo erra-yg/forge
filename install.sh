@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 mkdir -p "$HOME/.claude/skills" "$HOME/.claude/forge/retro"
 cp -r "$ROOT/skills/"forge-* "$HOME/.claude/skills/"
-cp "$ROOT/forge-home/L0-router.md" "$HOME/.claude/forge/"
+cp "$ROOT/forge-home/L0-router.md" "$ROOT/forge-home/subagent-codex.md" "$HOME/.claude/forge/"
 # Never clobber a locally-evolved changelog
 [ -f "$HOME/.claude/forge/CHANGELOG.md" ] || cp "$ROOT/forge-home/CHANGELOG.md" "$HOME/.claude/forge/"
 # Telemetry hook script (invocation-fidelity ledger)

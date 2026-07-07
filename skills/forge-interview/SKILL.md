@@ -21,7 +21,7 @@ Walk the design tree with the user until every load-bearing branch is resolved. 
   - **M / one-way-door mode**: interview ONLY hard-to-reverse or genuinely ambiguous decisions. Reversible details — decide yourself, state the decision inline ("默认用 X,可改"), move on.
   - **L / full mode**: walk every branch, but a branch whose resolution follows from an earlier answer is stated, not asked.
 - **Terminology work is inline.** When a term resolves or conflicts, apply `forge-glossary` at that moment, not at the end.
-- **Empirical questions get prototypes, not debate.** If a 30-minute throwaway would answer it better than three rounds of speculation, invoke `forge-prototype` and return with the answer.
+- **Empirical questions get prototypes, not debate.** If a 30-minute throwaway would answer it better than three rounds of speculation, invoke `forge-prototype` and return with the answer. A question that is really a *parameter space* (many controlled trials against a metric) outgrows prototype — suggest a `forge-experiment` campaign and wait for approval.
 - **Unknown facts get research.** External-knowledge questions (library behavior, API limits) → `forge-research` in the background while the interview continues on other branches.
 
 ## Convergence and exit

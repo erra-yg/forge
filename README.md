@@ -1,6 +1,6 @@
 # Forge
 
-**A lane-based agentic coding workflow for Claude Code** — 16 skills and one ~300-token session hook that route every coding task through the right amount of process: trivial fixes stay frictionless, one-way-door decisions get interviewed, multi-session builds get sliced, isolated, verified, and landed.
+**A lane-based agentic coding workflow for Claude Code** — 17 skills and one ~300-token session hook that route every coding task through the right amount of process: trivial fixes stay frictionless, one-way-door decisions get interviewed, multi-session builds get sliced, isolated, verified, and landed.
 
 ---
 
@@ -65,7 +65,7 @@ Cross-cutting: forge-glossary (CONTEXT.md + ADRs) · forge-prototype / forge-res
 (side-quests with mandatory write-back) · forge-retro (capture → evolve)
 ```
 
-**The 16 skills**
+**The 17 skills**
 
 | Skill | Role |
 |---|---|
@@ -85,6 +85,7 @@ Cross-cutting: forge-glossary (CONTEXT.md + ADRs) · forge-prototype / forge-res
 | forge-retro | the evolution loop: capture misfires, revise Forge from corpus |
 | forge-handoff | cross-session baton: checkpoint task state to the bus, verified resume |
 | forge-arch | proactive architecture health: defect-gravity-driven, candidates only |
+| forge-experiment | hypothesis-driven campaigns: approved metric, calibrated measurement, negative results first-class |
 
 **File conventions**: PRDs/issues live on the in-repo bus `docs/forge/{prd,issues}/` (frontmatter state machine, offline-first, greppable). Glossary at `CONTEXT.md`, ADRs in `docs/adr/`. Worktrees under `.forge/wt/`. The retro corpus is machine-local at `~/.claude/forge/retro/`.
 

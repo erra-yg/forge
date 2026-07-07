@@ -27,4 +27,4 @@ Work module by module with the deep-module vocabulary:
 
 ## Output
 
-A short ranked report — top 3–5 opportunities, no more. Each: location, the smell, **the evidence** (which defect cluster, which seam pain, which strike-out), expected payoff, recommended lane. Then stop. Chosen items go to `forge-triage`; glossary-worthy boundary decisions crystallizing during the pass go through `forge-glossary` as usual.
+A short ranked report — top 3–5 opportunities, no more. Each: location, the smell, **the evidence** (which defect cluster, which seam pain, which strike-out), expected payoff, recommended lane. Then stop. Chosen items go to `forge-triage`; an opportunity whose payoff is quantifiable but unknown (performance, cost) is a `forge-experiment` candidate — suggest the campaign, don't guess the numbers. Glossary-worthy boundary decisions crystallizing during the pass go through `forge-glossary` as usual.
