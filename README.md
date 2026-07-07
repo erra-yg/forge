@@ -25,8 +25,8 @@ Their strengths and gaps are nearly mirror images. Forge is the synthesis, plus 
 
 1. **Graduated intensity** — process scaled to risk, decided automatically, announced, never waited on.
 2. **Behavioral verification** — drive the real surface (CLI, endpoint, page), not just test exit codes.
-3. **Forced write-back** — prototype and research answers must land in a durable artifact; "no write-back = it never happened."
-4. **Self-evolution** — process failures become a training corpus that revises Forge's own rules.
+3. **Write-back as law** — both parents already ask you to save prototype/research answers; Forge hardens this into law: backlink to the artifact that asked the question, and a ban on absorbing prototype code into production (the parents' genuinely shared blind spot is runtime verification, not write-back).
+4. **Runtime self-evolution** — process failures and escaped defects become a training corpus that revises Forge's own rules while it runs (superpowers self-improves too, but at design time — skill-TDD and an eval framework; Forge closes the loop on live usage).
 5. **The leash** (v0.2, after [Slepak's Short Leash method](https://blog.okturtles.org/2026/07/short-leash-ai-method/)) — oversight density as a second knob, orthogonal to lanes and scaled to the *expertise gradient*: in domains where the user out-knows the model (where code can run fine yet be subtly wrong), the chain stops at every stage boundary for diff inspection and routes domain questions to the human; elsewhere it flows. Announce-and-go governs process transitions; the leash governs content checkpoints.
 
 ## How it compares
@@ -35,12 +35,12 @@ Their strengths and gaps are nearly mirror images. Forge is the synthesis, plus 
 |---|---|---|---|
 | Intensity control | one-size-fits-all gates | manual skill picking | two knobs: lanes (process) + leash (oversight) |
 | Discipline (TDD/debug/verify) | ✅ Iron Laws, always | opt-in, siloed | Iron Laws at trigger points |
-| Durable knowledge | ❌ dated specs pile up | ✅ CONTEXT.md + ADR | ✅ same, updated inline |
+| Durable knowledge | committed specs/plans, but no glossary/ADR | ✅ CONTEXT.md + ADR | ✅ same, updated inline |
 | Cross-session coordination | ❌ | issue tracker (GitHub) | local markdown bus (offline-first) |
 | Isolation & parallelism | worktrees, serial only | ❌ collides on worktree | worktree per slice, parallel |
 | Runtime behavior check | ❌ test-exit-code centric | ❌ diff-review centric | ✅ behavioral drive in verify |
 | Chain advancement | forced, always | fully manual | announce-and-go, user can veto |
-| Self-improvement | ❌ | ❌ | ✅ retro corpus → rule diffs |
+| Self-improvement | design-time (skill-TDD + eval framework) | manual (.changeset design log) | ✅ runtime: escaped-defect corpus → rule diffs |
 
 ## Architecture
 
