@@ -25,3 +25,8 @@ Revision log for the Forge workflow ecosystem. Each entry: date, files touched, 
 - forge-retro: mandatory escaped-defect category (recall ground truth for review/verify); external-input verification rule for evolve mode.
 - forge-land: remote CI as senior gate (local green = pre-screen).
 - Deliberately NOT added to L0 router (token budget; rules live at their trigger sites).
+
+## 2026-07-07 — v0.3 arch + eval backstop + invocation-fidelity telemetry
+- forge-arch (16th skill): proactive architecture health, defect-gravity-driven (escaped-defect clusters + rootcause three-strikes as evidence sources), candidates-only output routed through triage. Fills the capability hole the forge-eval audit named.
+- forge-retro evolve: N-confidence annotation (single-user-corpus overfit guard), regression thought-test before applying rule diffs (lightweight eval backstop, per audit rec #3), invocation-fidelity check.
+- Telemetry: PostToolUse(Skill) hook → ~/.claude/forge/bin/log-skill.sh → invocations.jsonl ledger. Deterministic, zero LLM cost. Rationale: reframed "harness" question — the binding constraint isn't cross-platform porting but whether skills fire at the right moments; observability chosen over enforcement (blocking hooks rejected: false-block friction, S-lane exemptions not deterministically encodable). Escalation path: if ledger shows systematic misses for a specific Law, add an enforcing hook for THAT Law only, evidence-first.

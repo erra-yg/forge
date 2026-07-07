@@ -1,6 +1,6 @@
 # Forge
 
-**A lane-based agentic coding workflow for Claude Code** — 15 skills and one ~300-token session hook that route every coding task through the right amount of process: trivial fixes stay frictionless, one-way-door decisions get interviewed, multi-session builds get sliced, isolated, verified, and landed.
+**A lane-based agentic coding workflow for Claude Code** — 16 skills and one ~300-token session hook that route every coding task through the right amount of process: trivial fixes stay frictionless, one-way-door decisions get interviewed, multi-session builds get sliced, isolated, verified, and landed.
 
 ---
 
@@ -65,7 +65,7 @@ Cross-cutting: forge-glossary (CONTEXT.md + ADRs) · forge-prototype / forge-res
 (side-quests with mandatory write-back) · forge-retro (capture → evolve)
 ```
 
-**The 15 skills**
+**The 16 skills**
 
 | Skill | Role |
 |---|---|
@@ -84,6 +84,7 @@ Cross-cutting: forge-glossary (CONTEXT.md + ADRs) · forge-prototype / forge-res
 | forge-research | background cited research notes |
 | forge-retro | the evolution loop: capture misfires, revise Forge from corpus |
 | forge-handoff | cross-session baton: checkpoint task state to the bus, verified resume |
+| forge-arch | proactive architecture health: defect-gravity-driven, candidates only |
 
 **File conventions**: PRDs/issues live on the in-repo bus `docs/forge/{prd,issues}/` (frontmatter state machine, offline-first, greppable). Glossary at `CONTEXT.md`, ADRs in `docs/adr/`. Worktrees under `.forge/wt/`. The retro corpus is machine-local at `~/.claude/forge/retro/`.
 
@@ -96,13 +97,16 @@ git clone https://github.com/erra-yg/forge.git && cd forge
 ./install.sh
 ```
 
-Then add the router hook to `~/.claude/settings.json` (merge into your existing `hooks` — don't overwrite the file):
+Then add two hooks to `~/.claude/settings.json` (merge into your existing `hooks` — don't overwrite the file): the router injection, and the invocation-fidelity ledger (deterministic telemetry that forge-retro's evolve pass audits to catch skills that should have fired but didn't):
 
 ```json
 {
   "hooks": {
     "SessionStart": [
       { "hooks": [ { "type": "command", "command": "cat /home/<user>/.claude/forge/L0-router.md" } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Skill", "hooks": [ { "type": "command", "command": "/home/<user>/.claude/forge/bin/log-skill.sh" } ] }
     ]
   }
 }

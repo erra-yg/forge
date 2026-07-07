@@ -15,6 +15,8 @@ sync_to() {
     cp -r "$d" "$dst/skills/"
   done
   cp "$HOME/.claude/forge/L0-router.md" "$HOME/.claude/forge/CHANGELOG.md" "$dst/forge-home/"
+  mkdir -p "$dst/forge-home/bin"
+  cp "$HOME/.claude/forge/bin/log-skill.sh" "$dst/forge-home/bin/"
 }
 
 sync_to "$REPO"
